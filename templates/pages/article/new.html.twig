@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel article
+{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <h1 class="text-md-justify">Nouvel article</h1>
+        {{ form_start(form, {'attr':{'novalidate':'novalidate'}})}}
+            		<div class="form-group">
+			{{ form_label(form.title) }}
+			{{ form_widget(form.title) }}
+			<div class="form-error">
+				{{ form_errors(form.title) }}
+			</div>
+		</div>
+        {{ form_end(form)}}
+
+    </div>
+    </div>
+
+{% endblock %}

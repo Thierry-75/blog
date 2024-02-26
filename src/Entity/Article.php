@@ -20,18 +20,23 @@ class Article
     private ?int $id = null;
 
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\NotNull()]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(type: 'string',length: 100, unique: true)]
+    #[Assert\NotNull(message:'Renseignement obligatoire')]
+    #[Assert\Length(min:5,max:100,minMessage:'min 5 caractères',maxMessage:'100 caractères max')]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotNull(message:'Renseignement obligatoire')]
     private ?string $content = null;
 
     #[ORM\Column(type:'string')]
     private ?string $slug = null;
 
     #[ORM\Column(nullable:false)]
+    #[Assert\NotNull()]
     private ?bool $published = false;
 
     #[ORM\Column(type: 'datetime_immutable')]
