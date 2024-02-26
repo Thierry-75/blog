@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Boolean;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -16,15 +16,20 @@ class Article
     private ?int $id = null;
 
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\NotNull()]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(type: 'string',length: 100, unique: true)]
+    #[Assert\NotNull(message:'Renseignement obligatoire')]
+    #[Assert\Length(min:5,max:100,minMessage:'min 5 caractères',maxMessage:'100 caractères max')]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotNull(message:'Renseignement obligatoire')]
     private ?string $content = null;
 
     #[ORM\Column(nullable:false)]
+    #[Assert\NotNull()]
     private ?bool $published = false;
 
     public function __construct(){
