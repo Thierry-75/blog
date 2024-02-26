@@ -1,4 +1,11 @@
 import './bootstrap.js';
+require('bootstrap-icons/font/bootstrap-icons.css');
+
+
+
+// or you can include specific pieces
+require('bootstrap/js/src/tooltip.js');
+require('bootstrap/js/dist/popover');
 /*
  * Welcome to your app's main JavaScript file!
  *
