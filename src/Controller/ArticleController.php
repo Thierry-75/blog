@@ -29,6 +29,7 @@ class ArticleController extends AbstractController
                 $entityManagerInterface->persist($article);
                 $entityManagerInterface->flush();
                 $this->addFlash('success', "l'article : " . $article->getTitle() . " a été enregistré");
+                return $this->redirectToRoute('app_main_index');
             }
         }
         return $this->render('pages/article/new.html.twig', ['form' => $form->createView()]);
