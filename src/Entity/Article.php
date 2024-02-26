@@ -3,11 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Boolean;
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
+#[UniqueEntity(fields: 'slug',message:'Ce slug existe déjà.')]
+#[HasLifecycleCallbacks]
 class Article
 {
     #[ORM\Id]
@@ -24,13 +28,30 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
+    #[ORM\Column(type:'string')]
+    private ?string $slug = null;
+
     #[ORM\Column(nullable:false)]
     private ?bool $published = false;
+
+    #[ORM\Column(type: 'datetime_immutable')]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     public function __construct(){
 
         $this->createdAt = new \DateTimeImmutable();
+        $this->updatedAt = new \DateTimeImmutable();
     }
+
+    #[ORM\PrePersist]
+    public function prePersist(){
+        $this->slug = (new Slugify())->slugify($this->title);
+    }
+
+    public function postUpdate(){
+        $this->updatedAt = new \DateTimeImmutable();
+    }
+
 
     public function getId(): ?int
     {
@@ -81,6 +102,46 @@ class Article
     public function setPublished(bool $published): static
     {
         $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of slug
+     */ 
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set the value of slug
+     *
+     * @return  self
+     */ 
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of updatedAt
+     */ 
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set the value of updatedAt
+     *
+     * @return  self
+     */ 
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
