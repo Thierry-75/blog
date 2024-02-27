@@ -17,7 +17,7 @@ class Photo
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type:'string',length:255,unique:true)]
+    #[ORM\Column(type:'string',length:255)]
     #[Assert\NotNull()]
     private ?string $url = null;
 

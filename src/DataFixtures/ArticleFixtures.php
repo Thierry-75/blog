@@ -18,6 +18,7 @@ class ArticleFixtures extends Fixture
             $article->setTitle($faker->sentence($nbwords=3, $variableNbWords = true))
                     ->setContent($faker->realText(1000))
                     ->setPublished(mt_rand(0,2) ===1 ? false : true);
+                
             $manager->persist($article);
         }
 
