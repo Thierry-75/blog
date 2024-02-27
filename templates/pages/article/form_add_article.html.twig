@@ -1,0 +1,27 @@
+<h1 class="text-md-justify text-primary">Nouvel article</h1>
+{{ form_start(form, {'attr':{'novalidate':'novalidate'}})}}
+<div class="form-group">
+	{{ form_label(form.title) }}
+	{{ form_widget(form.title) }}
+	<div class="form-error">
+		{{ form_errors(form.title) }}
+	</div>
+</div>
+<div class="form-group">
+	{{ form_label(form.content) }}
+	{{ form_widget(form.content) }}
+	<div class="form-error">
+		{{ form_errors(form.content) }}
+	</div>
+</div>
+<div class="form-group">
+	{{ form_label(form.photo) }}
+	{{ form_widget(form.photo) }}
+	<div class="form-error">
+		{{ form_errors(form.photo) }}
+	</div>
+</div>
+<div class="form-group">
+	{{ form_widget(form.submit) }}
+</div>
+{{ form_end(form)}}

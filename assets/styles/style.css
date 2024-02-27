@@ -3,8 +3,14 @@ html{
 }
 body{
     padding: 0;
+    background-color:#f8f8f8;
 }
 main{
     margin-top: 100px;
+}
+
+#cards-photo{
+    height: 200px;
+    width: 380px;
 }
 

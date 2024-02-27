@@ -1,11 +1,15 @@
+
 <div class="card mt-1 mb-1" style="width: 24rem;">
-	<img src="https://tecdn.b-cdn.net/img/new/standard/nature/186.jpg" class="card-img-top" alt="...">
+	<!--<img src="https://tecdn.b-cdn.net/img/new/standard/nature/186.jpg" class="card-img-top" alt="...">-->
+    {% for photo in article.photos | slice(0,1) %}
+    <img src="{{ asset('uploads/photos/'~ photo.url ) }}" id="cards-photo" class="card-img-top img-thumbnail" alt="{{ photo.name }}">
+    {% endfor %}
 	<div class="card-body">
-		<h5 class="card-title">{{ article.title }}</h5>
-		<p class="card-text">{{ article.content | u.truncate(120,'...') }}</p>
-		<a href="#" class="btn btn-primary">En savoir plus</a>
+		<h6 class="card-title">{{ article.title }}</h6>
+		<p class="card-text text-justify text-sm">{{ article.content | u.truncate(150,'...') |raw}}</p>
+		
 	</div>
-    <div class="card-footer text-body-secondary text-sm-center">
-    Mise à jour le: {{ article.createdAt | date('d/m/Y') }}
+    <div class="card-footer text-body-secondary text-sm">
+    Mise à jour le: {{ article.createdAt | date('d/m/Y') }}<a href="#" class="btn btn-sm btn-primary float-end">Voir plus</a>
   </div>
 </div>

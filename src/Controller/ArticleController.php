@@ -3,13 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Photo;
 use App\Form\ArticleType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 
 class ArticleController extends AbstractController
 {
@@ -26,6 +28,16 @@ class ArticleController extends AbstractController
                 return $this->render('pages/article/new.html.twig', ['form' => $form->createView(), 'errors' => $errors]);
             }
             if ($form->isSubmitted() && $form->isValid()) {
+                $photos = $form->get('photo')->getData();
+                foreach($photos as $photo){
+                    $nom = $photo->getClientOriginalName();
+                    $fichier = md5(uniqid($photo)) . '.' . $photo->guessExtension();
+                    $photo->move($this->getParameter('photo_directory'),$fichier);
+                    $img = new Photo();
+                    $img->setName($nom);
+                    $img->setUrl($fichier);
+                    $article->addPhoto($img);
+                }
                 $entityManagerInterface->persist($article);
                 $entityManagerInterface->flush();
                 $this->addFlash('success', "l'article : " . $article->getTitle() . " a été enregistré");
