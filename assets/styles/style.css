@@ -1,16 +1,37 @@
-html{
+html {
     margin: 0;
 }
-body{
+
+body {
     padding: 0;
-    background-color:#f8f8f8;
-}
-main{
-    margin-top: 100px;
+    background-color: #f3f2f0d8;   
 }
 
-#cards-photo{
+main {
+    margin-top: 80px;
+}
+.navbar{
+    box-shadow: 0 0 65px #dfd9cd inset, 0 0 20px #c2baa8 inset, 0 0 5pt #524d42;
+}
+
+
+.card {
+    box-shadow: 0 0 65px #dfd9cd inset, 0 0 20px #c2baa8 inset, 0 0 5pt #524d42;
+}
+
+#cards-photo {
     height: 200px;
     width: 380px;
 }
 
+.card-body {
+    font-size: small !important;
+}
+
+.card-footer {
+    font-size: smaller !important;
+}
+
+#footer{
+    background-color: #eeedea;
+}

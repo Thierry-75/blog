@@ -1,16 +1,16 @@
-<div class="card mt-1 mb-3" style="width: 20rem;">
+<div class="card bg-light mt-1 mb-3" style="width: 22rem;">
 	{% for photo in article.photos | slice(0,1) %}
 		{% if photo.url is defined %}
 			<img src="{{ asset('uploads/photos/'~ photo.url ) }}" id="cards-photo" class="card-img-top img-thumbnail" alt="{{ photo.name }}">
 		{% endif %}
 	{% endfor %}
 	<div class="card-body">
-		<h6 class="card-title">{{ article.title }}</h6>
-		<p class="card-text text-justify text-sm">{{ article.content | u.truncate(150,'...') |raw}}</p>
+		<h6 class="card-title text-primary">{{ article.title }}</h6>
+		<p class="card-text text-justify text-sm" id="card-text">{{ article.content | u.truncate(150,'...') |raw}}</p>
 
 	</div>
 	<div class="card-footer text-body-secondary text-sm">
-		Mise à jour le:
-		{{ article.createdAt | date('d/m/Y') }}<a href="#" class="btn btn-sm btn-primary float-end">Voir plus</a>
+		<p class="text-black mt-2">Edité le : 
+		{{ article.createdAt | date('d/m/Y') }}<a href="#" class="btn btn-sm btn-outline-danger rounded-pill float-end mt-0">Voir plus</a></p>
 	</div>
 </div>

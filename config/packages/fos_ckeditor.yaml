@@ -9,7 +9,7 @@ fos_ck_editor:
         main_config:
             allowedContent: true # Désactive le filtrage dans le code source, par exemple sur l'ajout de propriété HTML
             height: 300 # Hauteur
-            width: 1050 # Largeur
+            width: 1070 # Largeur
             toolbar:
                 - {
                     name: "styles",

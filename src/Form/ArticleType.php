@@ -18,13 +18,14 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title',TextType::class,['attr'=>['class'=>'form-control form-control-sm']
-            ,'label'=>'Titre :','label_attr' => ['class'=>'col-form-label col-form-label-sm mt-1'],
+            ,'label'=>'Titre :','label_attr' => ['class'=>'col-form-label col-form-label-sm mt-1 text-danger-emphasis'],
             'constraints'=>[new Assert\Length(['min'=>5,'max'=>100]), new Assert\NotBlank(['message' => ''])]])
-            ->add('content',CKEditorType::class,['attr'=>['class'=>'form-control form-control-sm'],'label'=>'Edito :','label_attr' => ['class'=>'col-form-label col-form-label-sm mt-3']])
+            ->add('content',CKEditorType::class,['attr'=>['class'=>'form-control form-control-sm'],
+            'label'=>'Edito :','label_attr' => ['class'=>'col-form-label col-form-label-sm mt-3 text-danger-emphasis']])
             ->add('photo',FileType::class,['attr'=>['class'=>'form-control form-control-sm mt-1'],
-            'label'=>'Télécharger 3 photos','label_attr'=>['class'=>'col-form-label col-form-label-sm mt-4']
+            'label'=>'Télécharger 3 photos','label_attr'=>['class'=>'col-form-label col-form-label-sm mt-4 text-danger-emphasis']
             ,'multiple'=>true,'mapped'=>false,'required'=>true])
-            ->add('submit',SubmitType::class,['attr'=>['class'=>'btn btn-primary mt-4 float-end'],'label'=>'Valider'])
+            ->add('submit',SubmitType::class,['attr'=>['class'=>'btn btn-sm btn-primary rounded-pill mt-4 float-end'],'label'=>'Valider'])
             
         ;
     }
