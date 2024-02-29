@@ -1,16 +1,18 @@
-<div class="card bg-light mt-1 mb-3" style="width: 22rem;">
-	{% for photo in article.photos | slice(0,1) %}
-		{% if photo.url is defined %}
-			<img src="{{ asset('uploads/photos/'~ photo.url ) }}" id="cards-photo" class="card-img-top img-thumbnail" alt="{{ photo.name }}">
-		{% endif %}
-	{% endfor %}
-	<div class="card-body">
-		<h6 class="card-title text-primary">{{ article.title }}</h6>
-		<p class="card-text text-justify text-sm" id="card-text">{{ article.content | u.truncate(150,'...') |raw}}</p>
+<div class="col-sm-6 mb-3 mb-sm-0" style="width: 18rem";>
+	<div class="card mb-4 rounded-3 shadow-sm">
 
-	</div>
-	<div class="card-footer text-body-secondary text-sm">
+		{% for photo in article.photos | slice(0,1) %}
+			{% if photo.url is defined %}
+				<img src="{{ asset('uploads/photos/'~photo.url ) | imagine_filter('my_thumb_webp') }}" id="cards-photo" class="card-img-top" alt="{{ photo.name }}">
+			{% endif %}
+		{% endfor %}
+		<div class="card-body">
+			<h6 class="card-title text-primary">{{ article.title }}</h6>
+			<p class="card-text text-justify text-sm" id="card-text">{{ article.content | u.truncate(150,'...') |raw}}</p>
+		</div>
+		<div class="card-footer text-body-secondary text-sm">
 		<p class="text-black mt-2">Edité le : 
-		{{ article.createdAt | date('d/m/Y') }}<a href="#" class="btn btn-sm btn-outline-danger rounded-pill float-end mt-0">Voir plus</a></p>
+		{{ article.createdAt | date('d/m/Y') }}<a href="#" class="btn btn-sm btn-outline-warning rounded-pill float-end mt-0 mb-2">Voir plus</a></p>
+	</div>
 	</div>
 </div>

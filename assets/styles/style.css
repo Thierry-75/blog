@@ -3,9 +3,16 @@ html {
 }
 
 body {
-    padding: 0;
-    background-color: #f3f2f0d8;   
-}
+    background-image: linear-gradient(180deg, var(--bs-secondary-bg), var(--bs-body-bg) 100px, var(--bs-body-bg));
+  }
+  
+  .container {
+    max-width: 960px;
+  }
+  
+  .pricing-header {
+    max-width: 700px;
+  }
 
 main {
     margin-top: 80px;
@@ -20,18 +27,18 @@ main {
 }
 
 #cards-photo {
-    height: 200px;
-    width: 380px;
+ 
+ max-height: 100%;
 }
 
 .card-body {
-    font-size: small !important;
+    font-size:small !important;
 }
 
 .card-footer {
-    font-size: smaller !important;
+    font-size:xx-small !important;
 }
 
 #footer{
-    background-color: #eeedea;
+    background-color:#e8e5df; 
 }

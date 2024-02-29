@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use Faker\Factory;
 use App\Entity\Article;
+
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -25,3 +26,5 @@ class ArticleFixtures extends Fixture
         $manager->flush();
     }
 }
+
+

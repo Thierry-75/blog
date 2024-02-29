@@ -7,11 +7,9 @@
 
 	<div class="text-center">
 		<h1>Articles</h1>
-		<div class="row my-sm-2 card-body">
+		<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 			{% for article in articles %}
-				<div class="col-sm-4 col-md-4 col-xl-4 ms-auto d-flex">
-					{% include('components/card.html.twig') %}
-				</div>
+				{% include('/components/card.html.twig') %}
 			{% endfor %}
 		</div>
 		{# display navigation #}
