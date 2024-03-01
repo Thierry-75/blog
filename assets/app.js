@@ -5,8 +5,8 @@ import './js/deletePhoto.js';
 
 
 // or you can include specific pieces
-require('bootstrap/js/src/tooltip.js');
-require('bootstrap/js/dist/popover');
+//require('bootstrap/js/src/tooltip.js');
+//require('bootstrap/js/dist/popover');
 /*
  * Welcome to your app's main JavaScript file!
  *

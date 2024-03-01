@@ -31,8 +31,8 @@
 	{% for photo in article.photos %}
 		<div>
 			<img src="{{ asset('/uploads/photos/' ~ photo.url)}}" alt="photo" width="150px"/>
-			<a href="{{ path('articles_delete_image',{ id: photo.id }) }}"
-			data-delete data-token="{{ csrf_token('delete') }}">Supprimer</a>
+			<a href="{{ path('article_delete_photo',{ id: photo.id }) }}"
+			data-delete data-token="{{ csrf_token('delete' ~ photo.id) }}">Supprimer</a>
 		</div>
 	{% endfor %}
 

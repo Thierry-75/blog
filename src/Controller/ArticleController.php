@@ -73,12 +73,12 @@ class ArticleController extends AbstractController
     }
 
 
-     #[Route('/supprime/image/{id}', name:'articles_delete_image',methods:['DELETE'])]
+     #[Route('/supprime/image/{id}', name:'article_delete_photo',methods:['DELETE'])]
     public function deleteImage(Photo $image, Request $request,EntityManagerInterface $entityManagerInterface){
         $data = json_decode($request->getContent(), true);
 
         // On vérifie si le token est valide
-        if($this->isCsrfTokenValid('delete', $data['_token'])){
+        if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])){
             // On récupère le nom de l'image
             $nom = $image->getUrl();
             // On supprime le fichier

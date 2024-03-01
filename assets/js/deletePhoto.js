@@ -1,11 +1,11 @@
 window.onload = () => {
     // Gestion des boutons "Supprimer"
-    let links = document.querySelectorAll("[data-delete]")
+    let boutons = document.querySelectorAll("[data-delete]")
     
     // On boucle sur links
-    for(link of links){
+    for(bouton of boutons){
         // On écoute le clic
-        link.addEventListener("click", function(e){
+        bouton.addEventListener("click", function(e){
             // On empêche la navigation
             e.preventDefault()
 
