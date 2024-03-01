@@ -2,9 +2,12 @@
 	<div class="card mb-4 rounded-3 shadow-sm">
 
 		{% for photo in article.photos | slice(0,1) %}
-			{% if photo.url is defined %}
+			{% if photo.url is defined and photo.url is not null %}
 				<img src="{{ asset('uploads/photos/'~photo.url ) | imagine_filter('my_thumb_webp') }}" id="cards-photo" class="card-img-top" alt="{{ photo.name }}">
+			{% else %}
+			<img src="https://tecdn.b-cdn.net/img/new/standard/nature/186.jpg" class="card-img-top" alt="...">
 			{% endif %}
+
 		{% endfor %}
 		<div class="card-body">
 			<h6 class="card-title text-primary">{{ article.title }}</h6>

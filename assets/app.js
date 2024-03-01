@@ -1,5 +1,6 @@
 import './bootstrap.js';
 require('bootstrap-icons/font/bootstrap-icons.css');
+import './js/deletePhoto.js';
 
 
 
@@ -14,5 +15,6 @@ require('bootstrap/js/dist/popover');
  */
 import './styles/app.scss';
 import './styles/style.css';
+
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

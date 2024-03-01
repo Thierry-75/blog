@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use Faker\Factory;
 use App\Entity\Article;
-
+use App\Entity\Photo;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -18,8 +18,7 @@ class ArticleFixtures extends Fixture
             $article = new Article();
             $article->setTitle($faker->sentence($nbwords=3, $variableNbWords = true))
                     ->setContent($faker->realText(1000))
-                    ->setPublished(mt_rand(0,2) ===1 ? false : true);
-                
+                    ->setPublished(mt_rand(0,2) ===1 ? false : true);    
             $manager->persist($article);
         }
 
