@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,6 +23,7 @@ class MainController extends AbstractController
         } catch (EntityNotFoundException $ex) {
             echo "Exception Found - " . $ex->getMessage() . "<br />"; // addflash ?
         }
-        return $this->render('pages/main/index.html.twig',['articles'=>$paginatorInterface->paginate($data,$request->query->getInt('page',1),9)]);
+        return $this->render('pages/main/index.html.twig',['articles'=>$paginatorInterface->paginate($data,$request->query->getInt('page',1),6)]);
     }
+
 }

@@ -1,12 +1,8 @@
 import './bootstrap.js';
+require('bootstrap');
 require('bootstrap-icons/font/bootstrap-icons.css');
 import './js/deletePhoto.js';
 
-
-
-// or you can include specific pieces
-//require('bootstrap/js/src/tooltip.js');
-//require('bootstrap/js/dist/popover');
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -18,3 +14,20 @@ import './styles/style.css';
 
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+
+const $ = require('jquery');
+// this "modifies" the jquery module: adding behavior to it
+// the bootstrap module doesn't export/return anything
+
+
+// or you can include specific pieces
+ require('bootstrap/js/dist/tooltip');
+ require('bootstrap/js/dist/popover');
+
+$(document).load(function() {
+    $('[data-toggle="popover"]').popover();
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+      })
+});

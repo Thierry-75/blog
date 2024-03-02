@@ -21,7 +21,7 @@ class Photo
     #[Assert\NotNull()]
     private ?string $url = null;
 
-    #[ORM\Column(type:'string',length:30)]
+    #[ORM\Column(type:'string',length:255)]
     #[Assert\NotNull()]
     private ?string $name = null;
 

@@ -4,15 +4,14 @@
 {% endblock %}
 
 {% block body %}
-
-	<div class="row mb-4">
-		<div class="col-md-2">
-			{% include('pages/article/side.html.twig') %}
-		</div>
-		<div class="col-md-10">
-		{% include('pages/article/form_add_article.html.twig') %}
+	<div class="container" id="page_article_edit">
+		<div class="row mb-4">
+			<div class="col-md-2">
+				{% include('pages/article/side.html.twig') %}
+			</div>
+			<div class="col-md-10">
+				{% include('pages/article/form_add_article.html.twig') %}
+			</div>
 		</div>
 	</div>
 {% endblock %}
-
-

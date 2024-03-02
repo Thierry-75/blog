@@ -4,22 +4,10 @@
 {% endblock %}
 
 {% block body %}
-
 	<div class="text-center">
-		<h1 class="text-primary">Articles</h1>
-		<div class="album py-5 bg-body-tertiary">
-			<div class="container-fluid">
-				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-						{% for article in articles %}
-							{% include('/components/card.html.twig') %}
-						{% endfor %}
-				</div>
-			</div>
-		</div>
-		{# display navigation #}
-		<div class="navigation d-flex justify-content-center mt-4 mb-4">
-			{{ knp_pagination_render(articles) }}
+		{% include('/components/caroussel.html.twig') %}
+		<div class="container marketing">
+			{% include('/components/card.html.twig') %}
 		</div>
 	</div>
-
 {% endblock %}
