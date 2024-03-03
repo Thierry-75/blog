@@ -1,6 +1,4 @@
-import './bootstrap.js';
-require('bootstrap');
-require('bootstrap-icons/font/bootstrap-icons.css');
+
 import './js/deletePhoto.js';
 
 /*
@@ -22,12 +20,13 @@ const $ = require('jquery');
 
 
 // or you can include specific pieces
- require('bootstrap/js/dist/tooltip');
- require('bootstrap/js/dist/popover');
+require('bootstrap');
+require('bootstrap-icons/font/bootstrap-icons.css');
+require('bootstrap/js/dist/tooltip');
+require('bootstrap/js/dist/popover');
 
 $(document).load(function() {
-    $('[data-toggle="popover"]').popover();
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-      })
+
+
+
 });

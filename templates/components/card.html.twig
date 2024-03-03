@@ -6,13 +6,12 @@
 					{% for photo in article.photos | slice(0,1) %}
 						{% if photo.url is defined %}
 							<img src="{{ asset('uploads/photos/' ~ photo.url ) | imagine_filter('my_thumb_webp') }}" id="card-photo" class="bd-placeholder-img rounded-circle" width="200" height="160" alt="{{ photo.name }}">
-						{% set image = photo.url %}
-                        {% endif %}
+						{% endif %}
 					{% endfor %}
 				</div>
 				<h6 class="fw-normal mb-2 text-primary">{{ article.title}}</h6>
 				<small class="text-body-secondary">{{ article.createdAt | date('d-m-Y') }}</small>
-				<p>{{ article.content | u.truncate(100,'...') |raw}}</p>
+				<p>{{ article.content | u.truncate(160,'...') |raw}}</p>
 				<p>
 					<button type="button" class="btn btn-sm btn-outline-primary">Lire</button>
 				</p>

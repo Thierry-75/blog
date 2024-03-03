@@ -11,11 +11,16 @@ liip_imagine:
         cache: ~
 
        
-        thumbnail:
+        thumbnail_jpeg:
+            format: jpeg
+            quality: 80
+            filters:
+                thumbnail: { size: [1600,900], mode: inset }
+        thumbnail_webp:
+            format: webp
             quality: 100
             filters:
-                thumbnail: { size: [100, 200], mode: inset }
-        
+                thumbnail: { size: [1600,900], mode: inset }
         my_thumb_jpeg:
             format: jpeg
             quality: 80
