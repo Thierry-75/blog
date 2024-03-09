@@ -44,3 +44,4 @@ yarn-error.log
 ###> download images ###
 /public/uploads/
 ###< liip/imagine-bundle ###
+/nbproject/private/

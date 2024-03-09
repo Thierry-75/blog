@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityNotFoundException;
 use Knp\Component\Pager\PaginatorInterface;
@@ -23,6 +23,12 @@ class MainController extends AbstractController
         }
         return $this->render('pages/main/index.html.twig',
         ['articles'=>$paginatorInterface->paginate($data,$request->query->getInt('page',1),6)]);
+    }
+
+    #[Route('/article/{slug}',name:'app_article_show',methods:['GET'])]
+    public function showArticle(Article $article): Response
+    {
+        return $this->render('pages/main/show.html.twig',['article'=>$article]);
     }
 
 }

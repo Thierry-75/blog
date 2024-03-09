@@ -27,9 +27,8 @@
 					<div class="container">
 						<div class="carousel-caption text-start">
 							<h1>{{ article.title }}</h1>
-							<p class="opacity-75">{{ article.content | u.truncate(50,'...') |raw}}</p>
 							<p>
-								<a class="btn btn-sm btn-primary rounded-pill" href="#">En savoir plus</a>
+								<a class="btn btn-sm btn-primary rounded-pill" href="{{ path('app_article_show',{slug:article.slug})}}">En savoir plus</a>
 							</p>
 						</div>
 					</div>
